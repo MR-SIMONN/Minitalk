@@ -6,11 +6,11 @@
 /*   By: moel-hai <moel-hai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 04:32:17 by moel-hai          #+#    #+#             */
-/*   Updated: 2025/03/11 16:36:40 by moel-hai         ###   ########.fr       */
+/*   Updated: 2025/03/11 17:25:43 by moel-hai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "../minitalk.h"
 
 static int	skip_it(char *str, int *pi)
 {
