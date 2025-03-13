@@ -6,7 +6,7 @@
 /*   By: moel-hai <moel-hai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:23:52 by moel-hai          #+#    #+#             */
-/*   Updated: 2025/03/12 00:18:21 by moel-hai         ###   ########.fr       */
+/*   Updated: 2025/03/13 09:38:57 by moel-hai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ void	signal_handler(int signum, siginfo_t *info, void *vd)
 		result = 0;
 	}
 	if (signum == SIGUSR2)
-		result |= (0b10000000 >> counter);
+		result |= (128 >> counter);
 	if (++counter == 8)
 	{
-		counter = 0;
 		if (result == '\0')
 		{
 			write(1, "\n", 1);
 			return ;
 		}
 		write(1, &result, 1);
+		counter = 0;
 		result = 0;
 	}
 }
