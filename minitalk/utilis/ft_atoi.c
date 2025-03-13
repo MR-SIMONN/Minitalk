@@ -6,47 +6,30 @@
 /*   By: moel-hai <moel-hai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 04:32:17 by moel-hai          #+#    #+#             */
-/*   Updated: 2025/03/11 17:25:43 by moel-hai         ###   ########.fr       */
+/*   Updated: 2025/03/12 00:06:42 by moel-hai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
 
-static int	skip_it(char *str, int *pi)
-{
-	int	i;
-	int	sign;
-
-	i = 0;
-	sign = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	*pi = i;
-	return (sign);
-}
-
-long	ft_atoi(const char	*str)
+int	ft_atoi(const char *str)
 {
 	int		i;
-	int		s;
-	long	r;
-	long	prev_r;
+	long	result;
 
 	i = 0;
-	r = 0;
-	s = skip_it((char *)str, &i);
-	while (((char *)str)[i] >= '0' && ((char *)str)[i] <= '9')
+	result = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		prev_r = r;
-		r = r * 10 + (((char *)str)[i++] - 48);
-		if ((r / 10) != prev_r)
+		if (result > INT_MAX / 10 || (result
+				== INT_MAX / 10 && str[i] - '0' > INT_MAX % 10))
 			return (0);
+		result = (result * 10) + (str[i] - '0');
+		if ((str[i + 1] < '1' || str[i + 1] > '9') && str[i + 1] != '\0')
+			return (0);
+		i++;
 	}
-	return (r * s);
+	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: moel-hai <moel-hai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:32:01 by moel-hai          #+#    #+#             */
-/*   Updated: 2025/03/11 16:35:35 by moel-hai         ###   ########.fr       */
+/*   Updated: 2025/03/12 00:00:16 by moel-hai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int     ft_printf(const char *str, ...);
 int	    ft_putchar(char c);
 void	ft_putnbr(int n, int *i);
 int	    ft_putstr(char *s);
-long    ft_atoi(const char	*str);
+int     ft_atoi(const char	*str);
 
 #endif
