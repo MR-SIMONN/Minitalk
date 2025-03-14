@@ -6,7 +6,7 @@
 /*   By: moel-hai <moel-hai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:23:52 by moel-hai          #+#    #+#             */
-/*   Updated: 2025/03/13 09:38:57 by moel-hai         ###   ########.fr       */
+/*   Updated: 2025/03/14 08:14:54 by moel-hai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ void	signal_handler(int signum, siginfo_t *info, void *vd)
 	if (++counter == 8)
 	{
 		if (result == '\0')
-		{
-			write(1, "\n", 1);
 			return ;
-		}
 		write(1, &result, 1);
 		counter = 0;
 		result = 0;
@@ -48,7 +45,7 @@ int	main(void)
 	pid = getpid();
 	ft_printf("Server PID : %d \n", pid);
 	server.sa_sigaction = signal_handler;
-	server.sa_flags = SA_SIGINFO;
+	server.sa_flags = 0;
 	sigaction(SIGUSR1, &server, 0);
 	sigaction(SIGUSR2, &server, 0);
 	while (1)
